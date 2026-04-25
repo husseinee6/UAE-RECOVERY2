@@ -1,0 +1,175 @@
+# Rikfiri Business Website Specification
+
+## 1. Concept & Vision
+
+Rikfiri is a premium transportation and logistics company based in the UAE. The website embodies **trust, professionalism, and reliability** — the three pillars that define the brand. The design language communicates confidence and competence while remaining approachable and customer-focused. Every element guides visitors toward one goal: **contacting us**.
+
+## 2. Design Language
+
+### Aesthetic Direction
+**Corporate Premium** — Clean lines, generous whitespace, bold typography, and subtle sophistication. Inspired by luxury automotive brands and high-end service companies.
+
+### Color Palette
+- **Primary (Dark Navy):** `#0F172A` — Headers, primary buttons, footer
+- **Secondary (Royal Blue):** `#1E40AF` — Accents, links, highlights
+- **Accent (Gold):** `#D4AF37` — CTAs, important elements, premium touches
+- **Background Light:** `#F8FAFC` — Section backgrounds
+- **Background White:** `#FFFFFF` — Cards, main content areas
+- **Text Primary:** `#1E293B` — Headings, body text
+- **Text Secondary:** `#64748B` — Descriptions, captions
+- **Success Green:** `#10B981` — WhatsApp button
+
+### Typography
+- **Headings:** Inter (Arabic: Noto Sans Arabic) — Bold weights, tight tracking
+- **Body:** Inter (Arabic: Noto Sans Arabic) — Regular/Medium weights
+- **Fallbacks:** system-ui, sans-serif
+
+### Spatial System
+- Base unit: 4px
+- Section padding: 80px vertical (desktop), 48px (mobile)
+- Card padding: 24px
+- Component gaps: 16px, 24px, 32px
+- Max content width: 1200px
+
+### Motion Philosophy
+- **Micro-interactions:** Subtle scale (1.02) on card hover, 200ms ease-out
+- **Scroll animations:** Fade-up on intersection, 400ms ease-out, staggered 100ms
+- **Button hover:** Background shift + subtle lift (translateY -2px)
+- **Page transitions:** Smooth scroll behavior
+
+### Visual Assets
+- **Icons:** Lucide React icons — consistent stroke width, clean lines
+- **Images:** Professional transportation/logistics imagery via Unsplash
+- **Decorative:** Subtle gradient overlays, geometric accent shapes
+
+## 3. Layout & Structure
+
+### Page Structure
+Single-page application with smooth scroll navigation:
+1. **Navigation** — Fixed top, transparent → solid on scroll
+2. **Hero** — Full viewport, bold headline, dual CTA buttons
+3. **About** — Split layout with image and company story
+4. **Services** — 6-card grid showcasing offerings
+5. **Why Choose Us** — 4-column trust indicators
+6. **Gallery** — Masonry/grid showcase of work
+7. **Contact** — Form + contact info side-by-side
+8. **Footer** — Links, social, copyright
+
+### RTL Support
+- Full bidirectional support
+- Arabic content with `dir="rtl"` on Arabic sections
+- Mirrored layouts for Arabic
+- Font switching automatically
+
+### Responsive Strategy
+- Mobile-first approach
+- Breakpoints: 640px (sm), 768px (md), 1024px (lg), 1280px (xl)
+- Stack layouts on mobile, grid on desktop
+- Touch-friendly tap targets (min 44px)
+
+## 4. Features & Interactions
+
+### Navigation
+- Sticky header with logo + nav links
+- Language toggle (AR/EN) — switches entire site language
+- Mobile hamburger menu with slide-in drawer
+- Active section highlighting on scroll
+
+### Hero Section
+- Full-screen background with overlay
+- Animated headline with typewriter or fade-in effect
+- Two prominent CTAs: "Call Now" (gold) + "WhatsApp" (green)
+- Scroll indicator arrow
+
+### Contact Form
+- Fields: Name (required), Phone (required), Service dropdown, Message
+- Real-time validation with error messages
+- Success state with confirmation message
+- Form data logged to console (lead capture ready)
+
+### Floating Action Buttons
+- WhatsApp button: Fixed bottom-right, pulse animation
+- Phone button: Secondary floating button
+- Both open native actions (tel:, wa.me)
+
+### Service Cards
+- Icon + title + short description
+- Hover: lift + shadow increase
+- Click: smooth scroll to contact section
+
+### Gallery
+- 6-image grid (3x2 desktop, 2x3 tablet, 1x6 mobile)
+- Lightbox on click
+- Smooth zoom-in animation
+
+## 5. Component Inventory
+
+### NavBar
+- States: transparent (top), solid (scrolled), mobile-open
+- Logo, nav links, language toggle, mobile menu button
+- Sticky positioning with backdrop blur
+
+### HeroSection
+- Background image with gradient overlay
+- Headline (H1), subheadline, dual CTAs
+- Animated entrance on load
+
+### ServiceCard
+- Icon container, title, description
+- States: default, hover (elevated + shadow)
+- Click handler for scroll-to-contact
+
+### TrustBadge
+- Icon, number/stat, label
+- Used in "Why Choose Us" section
+- Subtle animation on scroll-into-view
+
+### ContactForm
+- Input fields with floating labels
+- States: empty, focused, filled, error, success
+- Submit button with loading state
+
+### WhatsAppButton
+- Fixed position, rounded, brand green
+- Icon + optional label
+- Pulse animation
+- Opens wa.me link
+
+### GalleryItem
+- Image container with aspect ratio
+- Hover: slight zoom + overlay with icon
+- Click: opens lightbox
+
+### Footer
+- Logo, quick links, contact info, social icons
+- Copyright notice
+- Dark background
+
+## 6. Technical Approach
+
+### Stack
+- **Framework:** React 18 + TypeScript
+- **Styling:** Tailwind CSS 3.4
+- **Icons:** Lucide React
+- **Routing:** React Router v6 (for potential multi-page)
+- **Build:** Vite 6.0
+
+### Key Implementation Details
+- Language context for AR/EN switching
+- Intersection Observer for scroll animations
+- Form state management with React hooks
+- CSS custom properties for theming
+- Semantic HTML for SEO
+
+### SEO
+- Meta tags: title, description, keywords
+- Open Graph tags for social sharing
+- Semantic heading hierarchy (single H1)
+- Alt text on all images
+- Structured data ready
+
+### Performance
+- Lazy loading for images
+- Code splitting by route
+- Optimized asset delivery
+- Lighthouse score target: 90+
